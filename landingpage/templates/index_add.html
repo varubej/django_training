@@ -1,0 +1,29 @@
+<form action="{% url 'thanks_page' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+
+<br>
+<br>
+
+{% if object_list %}
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Дата</th>
+        <th>Имя</th>
+        <th>Телефон</th>
+    </tr>
+    {% for obj in object_list %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.order_dt }}</td>
+        <td>{{ obj.order_name }}</td>
+        <td>{{ obj.order_phone }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h1>Нет данных</h1>
+{% endif %}

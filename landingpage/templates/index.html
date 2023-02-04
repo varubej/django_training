@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %} Index title {% endblock %}
+{% load static %}
+{% block content %}
+<h1>Данные из index</h1>
+<img src="{% static 'img\1.jpg' %}" height="500">
+{% include 'index_add.html' %}
+{% endblock %}
